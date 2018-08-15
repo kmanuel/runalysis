@@ -55,7 +55,7 @@ const TRKPTOBJ = JSON.parse(`
                   "lon": "16.365546"
                 },
                 "ele": [
-                  "173.4"
+                  "168.3"
                 ],
                 "time": [
                   "2018-06-26T17:15:23.000Z"
@@ -161,5 +161,15 @@ describe('Run', () => {
   it('should give the correct end time', () => {
     expect(run.endTime())
       .toEqual(1530033325000);
+  });
+
+  it('should give correct total ascent', () => {
+    expect(run.ascent())
+      .toEqual(5.2);
+  });
+
+  it('should give correct total descent', () => {
+    expect(run.descent())
+      .toEqual(5.1);
   });
 });

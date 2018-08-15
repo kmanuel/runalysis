@@ -6,4 +6,3 @@ const loadRun = pathRoRun => fileLoader.readFile(pathRoRun)
 
 
 module.exports = { loadRun };
-

@@ -30,6 +30,8 @@ const RunType = new GraphQLObjectType({
     endTime: { type: GraphQLFloat },
     duration: { type: GraphQLInt },
     trackPoints: { type: GraphQLList(TrackPointType) },
+    ascent: { type: GraphQLFloat },
+    descent: { type: GraphQLFloat },
   }),
 });
 
