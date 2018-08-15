@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<gpx version="1.1" creator="TomTom.2008 with Barometer" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <metadata>
+        <name>Activity</name>
+    </metadata>
+    <trk>
+        <name>Running</name>
+        <trkseg>
+            <trkpt lat="48.223702" lon="16.365542">
+                <ele>173.4</ele>
+                <time>2018-06-26T17:15:22.000Z</time>
+                <extensions>
+                    <gpxtpx:TrackPointExtension>
+                        <gpxtpx:hr>86</gpxtpx:hr>
+                    </gpxtpx:TrackPointExtension>
+                </extensions>
+            </trkpt>
+            <trkpt lat="48.223712" lon="16.365546">
+                <ele>173.4</ele>
+                <time>2018-06-26T17:15:23.000Z</time>
+                <extensions>
+                    <gpxtpx:TrackPointExtension>
+                        <gpxtpx:hr>86</gpxtpx:hr>
+                    </gpxtpx:TrackPointExtension>
+                </extensions>
+            </trkpt>
+            <trkpt lat="48.223722" lon="16.365555">
+                <ele>173.5</ele>
+                <time>2018-06-26T17:15:24.000Z</time>
+                <extensions>
+                    <gpxtpx:TrackPointExtension>
+                        <gpxtpx:hr>89</gpxtpx:hr>
+                    </gpxtpx:TrackPointExtension>
+                </extensions>
+            </trkpt>
+            <trkpt lat="48.223732" lon="16.365568">
+                <ele>173.5</ele>
+                <time>2018-06-26T17:15:25.000Z</time>
+                <extensions>
+                    <gpxtpx:TrackPointExtension>
+                        <gpxtpx:hr>92</gpxtpx:hr>
+                    </gpxtpx:TrackPointExtension>
+                </extensions>
+            </trkpt>
+         </trkseg>
+    </trk>
+</gpx>
