@@ -3,6 +3,7 @@ function TrackPoint(trkptObject) {
   this.lon = Number(trkptObject.$.lon);
   this.elevation = Number(trkptObject.ele[0]);
   this.time = new Date(trkptObject.time[0]).getTime();
+  this.heartRate = Number(trkptObject.extensions[0]['gpxtpx:TrackPointExtension'][0]['gpxtpx:hr'][0]);
 }
 
 function Run(gpxObject) {
@@ -29,6 +30,8 @@ function getDuration() {
   return this.endTime() - this.startTime();
 }
 
+const round = number => Math.round(number * 100) / 100;
+
 function getAscent() {
   let totalAscent = 0;
   for (let i = 1; i < this.trackPoints().length; i += 1) {
@@ -37,7 +40,7 @@ function getAscent() {
       totalAscent += pointAscent;
     }
   }
-  return Math.round(totalAscent * 100) / 100;
+  return round(totalAscent);
 }
 
 function getDescent() {
@@ -48,7 +51,14 @@ function getDescent() {
       totalDescent -= pointDescent;
     }
   }
-  return Math.round(totalDescent * 100) / 100;
+  return round(totalDescent);
+}
+
+function getHeartRate() {
+  return this.trackPoints()
+    .map(point => point.heartRate)
+    .reduce((a, b) => a + b)
+    / this.trackPoints().length;
 }
 
 Run.prototype.trackPoints = getTrackPoints;
@@ -57,5 +67,6 @@ Run.prototype.endTime = getEndTime;
 Run.prototype.duration = getDuration;
 Run.prototype.ascent = getAscent;
 Run.prototype.descent = getDescent;
+Run.prototype.heartRate = getHeartRate;
 
 module.exports = { Run };

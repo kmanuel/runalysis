@@ -144,6 +144,7 @@ describe('Run', () => {
       lat: 48.223702,
       lon: 16.365542,
       elevation: 173.4,
+      heartRate: 86,
       time: 1530033322000,
     });
   });
@@ -171,5 +172,10 @@ describe('Run', () => {
   it('should give correct total descent', () => {
     expect(run.descent())
       .toEqual(5.1);
+  });
+
+  it('should return average heartRate', () => {
+    expect(run.heartRate())
+      .toEqual(88.25);
   });
 });

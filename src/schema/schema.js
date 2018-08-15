@@ -32,6 +32,7 @@ const RunType = new GraphQLObjectType({
     trackPoints: { type: GraphQLList(TrackPointType) },
     ascent: { type: GraphQLFloat },
     descent: { type: GraphQLFloat },
+    heartRate: { type: GraphQLFloat },
   }),
 });
 
