@@ -16,6 +16,7 @@
     "eslint-config-strongloop": "^2.1.0",
     "express": "^4.16.3",
     "express-graphql": "^0.6.12",
+    "geolib": "^2.0.24",
     "graphql": "^0.13.2",
     "graphql-tools": "^3.1.1",
     "jest": "^23.5.0",

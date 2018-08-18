@@ -1,3 +1,5 @@
+const geolib = require('geolib');
+
 function TrackPoint(trkptObject) {
   this.lat = Number(trkptObject.$.lat);
   this.lon = Number(trkptObject.$.lon);
@@ -61,6 +63,17 @@ function getHeartRate() {
     / this.trackPoints().length;
 }
 
+function getDistance() {
+  let prev = this.trackPoints()[0];
+
+  return this.trackPoints()
+    .reduce((sum, tp) => {
+      const distance = geolib.getDistance(tp, prev);
+      prev = tp;
+      return sum + distance;
+    }, 0);
+}
+
 Run.prototype.trackPoints = getTrackPoints;
 Run.prototype.startTime = getStartTime;
 Run.prototype.endTime = getEndTime;
@@ -68,5 +81,6 @@ Run.prototype.duration = getDuration;
 Run.prototype.ascent = getAscent;
 Run.prototype.descent = getDescent;
 Run.prototype.heartRate = getHeartRate;
+Run.prototype.distance = getDistance;
 
 module.exports = { Run };

@@ -178,4 +178,9 @@ describe('Run', () => {
     expect(run.heartRate())
       .toEqual(88.25);
   });
+
+  it('should return distance', () => {
+    expect(run.distance())
+      .toEqual(11);
+  });
 });
