@@ -30,7 +30,11 @@ const readFile = path => new Promise((resolve, reject) => {
     if (err) {
       return reject(err);
     }
-    return resolve(res);
+    return resolve({
+      res,
+      path,
+
+    });
   });
 });
 

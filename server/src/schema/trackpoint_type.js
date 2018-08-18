@@ -3,6 +3,7 @@ const graphql = require('graphql');
 const {
   GraphQLObjectType,
   GraphQLFloat,
+  GraphQLInt,
 } = graphql;
 
 const TrackPointType = new GraphQLObjectType({
@@ -12,6 +13,7 @@ const TrackPointType = new GraphQLObjectType({
     lon: { type: GraphQLFloat },
     elevation: { type: GraphQLFloat },
     time: { type: GraphQLFloat },
+    heartRate: { type: GraphQLInt },
   }),
 });
 

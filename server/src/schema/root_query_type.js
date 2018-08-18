@@ -1,5 +1,6 @@
 const path = require('path');
 const graphql = require('graphql');
+const atob = require('atob');
 const RunType = require('./run_type');
 const runLoader = require('../gpxParser/runLoader');
 const fileLoader = require('../gpxParser/fileLoader');
@@ -7,7 +8,13 @@ const fileLoader = require('../gpxParser/fileLoader');
 const {
   GraphQLObjectType,
   GraphQLList,
+  GraphQLID,
+  GraphQLNonNull,
 } = graphql;
+
+const loadRunById = (id) => {
+  return runLoader.loadRun(atob(id));
+};
 
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
@@ -15,9 +22,17 @@ const RootQuery = new GraphQLObjectType({
     runs: {
       type: GraphQLList(RunType),
       resolve() {
-        const fileDir = path.resolve(__dirname, '../__test__/testfiles/');
+        const fileDir = path.resolve(__dirname, '../playground/files/');
         return fileLoader.getFilesRecursively(fileDir)
-          .map(runLoader.loadRun);
+          .map(runLoader.loadRun)
+          .reverse();
+      },
+    },
+    run: {
+      type: RunType,
+      args: { id: { type: new GraphQLNonNull(GraphQLID) } },
+      resolve(_, args) {
+        return loadRunById(args.id);
       },
     },
   },

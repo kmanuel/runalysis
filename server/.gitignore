@@ -2,4 +2,3 @@ node_modules/
 playground/
 .idea/
 coverage/
-.env

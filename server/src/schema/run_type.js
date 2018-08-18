@@ -2,6 +2,7 @@ const graphql = require('graphql');
 const TrackPointType = require('./trackpoint_type');
 
 const {
+  GraphQLID,
   GraphQLObjectType,
   GraphQLString,
   GraphQLInt,
@@ -12,6 +13,7 @@ const {
 const RunType = new GraphQLObjectType({
   name: 'Run',
   fields: () => ({
+    id: { type: GraphQLID },
     name: { type: GraphQLString },
     startTime: { type: GraphQLFloat },
     endTime: { type: GraphQLFloat },
