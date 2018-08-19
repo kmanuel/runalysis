@@ -131,7 +131,10 @@ describe('Run', () => {
   let run;
 
   beforeEach(() => {
-    run = new Run(TRKPTOBJ);
+    run = new Run({
+      res: TRKPTOBJ,
+      path: '/test/qwer',
+    });
   });
 
   it('should contain 4 trackpoints', () => {
@@ -140,13 +143,14 @@ describe('Run', () => {
   });
 
   it('should map trackpoints correctly', () => {
-    expect(run.trackPoints()[0]).toEqual({
-      lat: 48.223702,
-      lon: 16.365542,
-      elevation: 173.4,
-      heartRate: 86,
-      time: 1530033322000,
-    });
+    expect(run.trackPoints()[0])
+      .toEqual({
+        lat: 48.223702,
+        lon: 16.365542,
+        elevation: 173.4,
+        heartRate: 86,
+        time: 1530033322000,
+      });
   });
 
   it('should give total duration', () => {

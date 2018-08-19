@@ -12,7 +12,6 @@ function TrackPoint(trkptObject) {
 }
 
 function Run(fileObj) {
-  console.log(fileObj);
   this.id = btoa(fileObj.path);
   this.gpxObject = fileObj.res;
   const track = this.gpxObject.gpx.trk[0];
@@ -21,8 +20,8 @@ function Run(fileObj) {
 }
 
 function getTrackPoints() {
-  if (this._points) {
-    return this._points;
+  if (this.cache_points) {
+    return this.cache_points;
   }
 
   const tracks = this.gpxObject.gpx.trk;
@@ -35,8 +34,8 @@ function getTrackPoints() {
   if (!trkseg || trkseg.length < 1) {
     return [];
   }
-  this._points = (trkseg[0].trkpt.map(trkpt => new TrackPoint(trkpt)));
-  return this._points;
+  this.cache_points = (trkseg[0].trkpt.map(trkpt => new TrackPoint(trkpt)));
+  return this.cache_points;
 }
 
 function getStartTime() {

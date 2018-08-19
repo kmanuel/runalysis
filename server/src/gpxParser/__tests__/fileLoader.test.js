@@ -83,7 +83,7 @@ describe('fileLoader', () => {
       const filePath = pathFor('./testfiles2/mini.gpx');
       fileLoader.readFile(filePath)
         .then((res) => {
-          expect(res.gpx.trk[0].trkseg[0].trkpt).toHaveLength(4);
+          expect(res.res.gpx.trk[0].trkseg[0].trkpt).toHaveLength(4);
           done();
         });
     });

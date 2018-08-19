@@ -12,9 +12,7 @@ const {
   GraphQLNonNull,
 } = graphql;
 
-const loadRunById = (id) => {
-  return runLoader.loadRun(atob(id));
-};
+const loadRunById = id => runLoader.loadRun(atob(id));
 
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
